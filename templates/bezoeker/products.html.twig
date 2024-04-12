@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>products</h1>
+        <table class="table">
+            <thead>
+                <th>name</th>
+                <th>price</th>
+                <th>size</th>
+                <th>stock</th>
+                <th>actions</th>
+            </thead>
+            <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{  product.name}}</td>
+                <td>{{  product.price}}</td>
+                <td>{{  product.size}}</td>
+                <td>{{  product.stock}}</td>
+                <td><a class="btn btn-warning" href="{{ path('update_product',{id:product.id}) }}">update</a>
+                <a class="btn btn-danger" href="{{ path('delete_product',{id:product.id}) }}">delete</a></td>
+
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+            <a class="btn btn-success" href="{{ path('add_product') }}">add</a>
+    </div>
+{% endblock %}
