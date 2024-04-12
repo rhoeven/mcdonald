@@ -7,18 +7,22 @@
         <table class="table">
             <thead>
                 <th>name</th>
+                <th>description</th>
                 <th>price</th>
                 <th>size</th>
                 <th>stock</th>
+                <th>category</th>
                 <th>actions</th>
             </thead>
             <tbody>
             {% for product in products %}
             <tr>
                 <td>{{  product.name}}</td>
+                <td>{{ product.description }}</td>
                 <td>{{  product.price}}</td>
                 <td>{{  product.size}}</td>
                 <td>{{  product.stock}}</td>
+                <td>{{ product.category.name }}</td>
                 <td><a class="btn btn-warning" href="{{ path('update_product',{id:product.id}) }}">update</a>
                 <a class="btn btn-danger" href="{{ path('delete_product',{id:product.id}) }}">delete</a></td>
 

@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Product;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -17,6 +18,7 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('description')
             ->add('size',ChoiceType::class,[
                 'choices' => [
                     'Small'=>'Small',
@@ -26,6 +28,7 @@ class ProductType extends AbstractType
             ])
             ->add('price',NumberType::class)
             ->add('stock')
+            ->add('category', EntityType::class)
             ->add('submit',SubmitType::class)
         ;
     }
